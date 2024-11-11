@@ -10,15 +10,18 @@ export const pasteSlice = createSlice({
   name: 'paste',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
+    addToPastes: (state, action) => {
+      
     },
-    decrement: (state) => {
-      state.value -= 1
+    updateToPastes: (state, action) => {
+      
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    resetAllPastes: (state, action) => {
+      
     },
+    removeFromPastes: (state, action) => {
+
+    }
   },
 })
 
