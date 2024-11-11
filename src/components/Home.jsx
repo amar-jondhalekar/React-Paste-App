@@ -7,19 +7,29 @@ const Home = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const pasteId = searchParams.get("pasteId"); 
   return (
-    <div>
+   <div>
+     <div className='flex flex-row gap-7'>
         <input className='p-2 rounded-2xl mt-2' 
         type="text"
         placeholder='Enter title here'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         />
-        <button>
+        <button className='p-2 rounded-2xl mt-2'>
             {
                 pasteId ? "Update My Paste" : "Create My Paste"
             }
         </button>
     </div>
+    <div>
+        <textarea
+        value={value}
+        placeholder='Enter content here'
+        onChange={(e) => setValue(e.target.value)}
+        rows={20}
+        />
+    </div>
+   </div>
   )
 }
 
