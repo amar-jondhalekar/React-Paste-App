@@ -14,7 +14,7 @@ const Home = () => {
             title: title,
             content: value,
             _id: pasteId ||
-                Date.now().toISOString(),
+            new Date().toISOString(),
         }
         if(pasteId){
             // update
