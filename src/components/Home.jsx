@@ -15,7 +15,9 @@ const Home = () => {
             content: value,
             _id: pasteId ||
             new Date().toISOString(),
-        }
+            createdAt: pasteId ? undefined : new Date().toISOString()  // Set createdAt only if it's a new paste
+        };
+
         if(pasteId){
             // update
             dispatch(updateToPastes(paste));
