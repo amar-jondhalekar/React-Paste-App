@@ -8,7 +8,11 @@ The Paste Manager application is a web-based platform where users can create, vi
 
 # App Demo
 
-(Paste Manager App)[https://cx4chy-5173.csb.app/]
+Paste Manager App ->
+
+Code Sandbox: [https://cx4chy-5173.csb.app/]
+
+Vercel: [https://react-paste-app-ashen.vercel.app/]
 
 # Images
 
