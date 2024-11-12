@@ -41,8 +41,9 @@ The Paste Manager application is a web-based platform where users can create, vi
 
 ## Project Structure
 
+.
 ├── public/
-│ └── index.html
+│ └── index.html # Main HTML file
 ├── src/
 │ ├── assets/ # Images, Icons, and other static assets
 │ ├── components/ # React components for the app
