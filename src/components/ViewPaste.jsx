@@ -6,7 +6,7 @@ import { addToPastes, updateToPastes } from "../redux/pasteSlice";
 const ViewPaste = () => {
   const { id } = useParams();
   const allPastes = useSelector((state) => state.paste.pastes);
-  const paste = allPastes.filter((p) => p._id === id);
+  const paste = allPastes.filter((p) => p._id === id)[0];
   console.log("Final Paste: ", paste);
   return (
     <div>
