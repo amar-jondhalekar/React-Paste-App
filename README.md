@@ -10,6 +10,14 @@ The Paste Manager application is a web-based platform where users can create, vi
 
 (Paste Manager App)[https://cx4chy-5173.csb.app/]
 
+# Images
+
+![Project Home Page](/src/assets/home.jpeg)
+![Project Home Page](/src/assets/content%20writen.jpeg)
+![Project Home Page](/src/assets/pastes.jpeg)
+![Project Home Page](/src/assets/view%20paste.jpeg)
+![Project Home Page](/src/assets/share%20paste.jpeg)
+
 ## Features
 
 - **Create a Paste**: Add new pastes with titles and content.
