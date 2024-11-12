@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeFromPastes } from '../redux/pasteSlice';
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromPastes } from "../redux/pasteSlice";
+import toast from "react-hot-toast";
 
 const Paste = () => {
   const pastes = useSelector((state) => state.paste.pastes);
-  console.log(pastes);  // Log pastes to check the structure and content
+  console.log(pastes); // Log pastes to check the structure and content
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
   // Filter pastes by title based on searchTerm
@@ -15,7 +15,7 @@ const Paste = () => {
     paste.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  function handleDelete(pasteId){
+  function handleDelete(pasteId) {
     dispatch(removeFromPastes(pasteId));
   }
 
@@ -31,7 +31,7 @@ const Paste = () => {
       <div className="flex flex-col gap-5 mt-5">
         {filteredData.length > 0 ? (
           filteredData.map((paste) => {
-            console.log("Paste createdAt: ", paste.createdAt);  // Log createdAt field
+            console.log("Paste createdAt: ", paste.createdAt); // Log createdAt field
             const formattedDate = new Date(paste.createdAt);
             const dateIsValid = !isNaN(formattedDate); // Check if the date is valid
 
@@ -40,20 +40,30 @@ const Paste = () => {
                 <div className="font-bold text-lg">{paste.title}</div>
                 <div className="mt-2">{paste.content}</div>
                 <div className="flex flex-row gap-4 place-content-evenly mt-3">
-                  <button>Edit</button>
-                  <button>View</button>
-                  <button onClick={() => handleDelete(paste?._id)}>Delete</button>
-                  <button onClick={() => {
-                    navigator.clipboard.writeText(paste?.content)
-                    toast.success("Copied to clipboard");
-                  }}>Copy</button>
+                  <button>
+                    <a href={`/?pasteId=${paste?._id}`}>Edit</a>
+                  </button>
+                  <button>
+                    <a href={`/pastes/${paste?._id}`}>View</a>
+                  </button>
+                  <button onClick={() => handleDelete(paste?._id)}>
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(paste?.content);
+                      toast.success("Copied to clipboard");
+                    }}
+                  >
+                    Copy
+                  </button>
                   <button>Share</button>
                 </div>
                 <div className="mt-2">
                   {/* Check if createdAt is valid and display the date */}
                   {dateIsValid
                     ? formattedDate.toLocaleString()
-                    : 'Date not available'}
+                    : "Date not available"}
                 </div>
               </div>
             );
