@@ -41,7 +41,7 @@ The Paste Manager application is a web-based platform where users can create, vi
 
 ## Project Structure
 
-├── public/
+├── public
 │ └── index.html
 ├── src/
 │ ├── assets/ # Images, Icons, and other static assets
@@ -58,9 +58,6 @@ The Paste Manager application is a web-based platform where users can create, vi
 │ ├── index.js # App entry point
 └── package.json # Project dependencies and scripts
 
-````
-
-
 ## Installation
 
 1. **Clone the repository:**
@@ -68,7 +65,7 @@ The Paste Manager application is a web-based platform where users can create, vi
 ```bash
    git clone https://github.com/amar-jondhalekar/React-Paste-App.git
    cd paste-manager
-````
+```
 
 2. **Install dependencies:**
 
