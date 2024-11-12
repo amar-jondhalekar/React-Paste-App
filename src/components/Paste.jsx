@@ -15,6 +15,20 @@ const Paste = () => {
     paste.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const [showSharePopup, setShowSharePopup] = useState(false);
+  const [linkToShare, setLinkToShare] = useState("");
+
+  function handleShare(pasteId) {
+    const url = `${window.location.origin}/pastes/${pasteId}`;
+    setLinkToShare(url);
+    setShowSharePopup(true);
+  }
+
+  function copyToClipboard() {
+    navigator.clipboard.writeText(linkToShare);
+    toast.success("Link copied to clipboard");
+  }
+
   function handleDelete(pasteId) {
     dispatch(removeFromPastes(pasteId));
   }
@@ -57,7 +71,12 @@ const Paste = () => {
                   >
                     Copy
                   </button>
-                  <button>Share</button>
+                  <button
+                    onClick={() => handleShare(paste?._id)}
+                    title="Share this paste"
+                  >
+                    Share
+                  </button>
                 </div>
                 <div className="mt-2">
                   {/* Check if createdAt is valid and display the date */}
@@ -72,6 +91,35 @@ const Paste = () => {
           <div>No pastes found</div> // Display message if no pastes match search term
         )}
       </div>
+      {/* Share Popup */}
+      {showSharePopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-5 rounded-lg shadow-lg max-w-md w-full">
+            <h3 className="text-lg font-bold mb-4">Share this Paste</h3>
+            <p className="mb-4">Copy the link below to share:</p>
+            <div className="flex items-center mb-4">
+              <input
+                type="text"
+                value={linkToShare}
+                readOnly
+                className="flex-1 p-2 border rounded-md mr-2"
+              />
+              <button
+                onClick={copyToClipboard}
+                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              >
+                Copy
+              </button>
+            </div>
+            <button
+              onClick={() => setShowSharePopup(false)}
+              className="text-red-500 font-bold mt-2"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
