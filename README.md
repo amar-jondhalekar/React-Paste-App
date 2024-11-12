@@ -41,6 +41,7 @@ The Paste Manager application is a web-based platform where users can create, vi
 
 # Project Structure
 
+```
 .
 ├── public/
 │ └── index.html # Main HTML file
@@ -58,6 +59,7 @@ The Paste Manager application is a web-based platform where users can create, vi
 │ ├── index.css # Global styles
 │ ├── index.js # App entry point
 └── package.json # Project dependencies and scripts
+```
 
 ## Installation
 
