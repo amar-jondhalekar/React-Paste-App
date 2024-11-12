@@ -39,8 +39,6 @@ The Paste Manager application is a web-based platform where users can create, vi
 
 ---
 
-## Project Structure
-
 # Project Structure
 
 .
