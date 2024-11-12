@@ -1,36 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useSearchParams } from "react-router-dom";
-import { addToPastes, updateToPastes } from "../redux/pasteSlice";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const ViewPaste = () => {
   const { id } = useParams();
   const allPastes = useSelector((state) => state.paste.pastes);
-  const paste = allPastes.filter((p) => p._id === id)[0];
-  console.log("Final Paste: ", paste);
+  const paste = allPastes.find((p) => p._id === id);
+
   return (
-    <div>
-      <div className="flex flex-row gap-7 place-content-between">
+    <div className="flex flex-col items-center p-6 max-w-2xl mx-auto bg-gray-100 rounded-lg shadow-lg mt-8">
+      <h1 className="text-2xl font-bold text-gray-800 mb-4">View Paste</h1>
+
+      <div className="w-full">
         <input
-          className="p-1 rounded-2xl mt-2 w-[60%] pl-4"
+          className="p-3 rounded-xl w-full text-lg bg-gray-200 border border-gray-300 text-gray-700 focus:outline-none"
           type="text"
-          placeholder="Enter title here"
-          value={paste.title}
+          placeholder="Title"
+          value={paste?.title || ""}
           disabled
-          onChange={(e) => setTitle(e.target.value)}
         />
-        {/* <button onClick={createPaste} className="p-2 rounded-2xl mt-2">
-          {pasteId ? "Update My Paste" : "Create My Paste"}
-        </button> */}
       </div>
-      <div className="mt-8">
+
+      <div className="w-full mt-6">
         <textarea
-          className="rounded-2xl mt-4 min-w-[500px] p-4"
-          value={paste.content}
-          placeholder="Enter content here"
+          className="p-4 rounded-xl w-full min-h-[300px] bg-gray-200 border border-gray-300 text-gray-700 text-lg resize-none focus:outline-none"
+          placeholder="Content"
+          value={paste?.content || ""}
           disabled
-          onChange={(e) => setValue(e.target.value)}
-          rows={20}
+          rows={10}
         />
       </div>
     </div>
